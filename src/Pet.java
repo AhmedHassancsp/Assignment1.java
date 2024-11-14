@@ -2,7 +2,7 @@ public class Pet {
 	
 	private String name;
 	private int age;
-	private int;
+
 	
 	Pet() {
 		
