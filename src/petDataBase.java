@@ -26,31 +26,39 @@ public class PetDatabase {
 		return  playerChoice; // RETURNING THEIR CHOICE
 		
 	}
-}
 
-// CREATING A METHOD THAT ADD NAME AND AGE
-private static void addPets() {
-    //Let the user add how ever many pet they want
-    //Accept the user input of name and age.
-    //Create an Pet object and add that object to Pets array
-    //Keep track of how many pets the user enters.
-    //Create a While loop where name does not equal "done".
-    String name = "";
-    int age = 0;
-    
-    // LOOPING WHILE THE NAME DOES NOT EQUAL DONE
-    while (name != "done") {
-        System.out.println("add pet (name, age): ");
-        name = s.next();
+
+    // CREATING A METHOD THAT ADD NAME AND AGE
+    private static void addPets() {
+        //Let the user add how ever many pet they want
+        //Accept the user input of name and age.
+        //Create an Pet object and add that object to Pets array
+        //Keep track of how many pets the user enters.
+        //Create a While loop where name does not equal "done".
+        String name = "";
+        int age = 0;
         
-        if (name.equals("done")) {
-            break;
+        // LOOPING WHILE THE NAME DOES NOT EQUAL DONE
+        while (name != "done") {
+            System.out.println("add pet (name, age): ");
+            name = s.next();
+            
+            if (name.equals("done")) {
+                break;
+            }
+            age = s.nextInt();
+            pets[petCount] = new Pet(name, age);
+            petCount += 1;
+            //System.out.println(petCount);
         }
-        age = s.nextInt();
-        pets[petCount] = new Pet(name, age);
-        petCount += 1;
-        //System.out.println(petCount);
+        
     }
-    
-    
+
+    // CREATING A METHOD THAT PRINTS THE TABLE HEADER
+    private static void printTableHeader() {
+        System.out.printf("+-------------------------+%n");
+        System.out.printf("|%-3s | %-10s |%4s |%n", "ID", "NAME", "AGE");
+        System.out.printf("+-------------------------+\n");
+    }
+
 }
