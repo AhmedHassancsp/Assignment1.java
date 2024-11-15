@@ -61,9 +61,13 @@ public class PetDatabase {
         System.out.printf("+-------------------------+\n");
     }
 
+    private static void printTableRow(int id, String name, int age ){
+		
+			System.out.printf("|%-3d | %-10s |%4d |%n" , id, name, age);
+		}
+
     // CREATING A METHOD THAT PRINTS THE TABLE FOOTER
 	public static void printTableFooter() {
-		
 		System.out.print("+-------------------------+ \n");
 		System.out.println(petCount + " rows in set.");
 	}
