@@ -61,4 +61,11 @@ public class PetDatabase {
         System.out.printf("+-------------------------+\n");
     }
 
+    // CREATING A METHOD THAT PRINTS THE TABLE FOOTER
+	public static void printTableFooter() {
+		
+		System.out.print("+-------------------------+ \n");
+		System.out.println(petCount + " rows in set.");
+	}
+
 }
