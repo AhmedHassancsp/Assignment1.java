@@ -54,6 +54,21 @@ public class PetDatabase {
         
     }
 
+    // CREATING A METHOD THAT SHOWS PETS NAME AND AGE
+	public static void showAllPets() {
+		
+		printTableHeader(); //CALLING THE TABLE HEADER METHOD.
+		
+		for (int i = 0; i < petCount; i++) {
+			printTableRow(i, pets[i].getName(), pets[i].getAge());
+			
+			// CALLING THE printTableRow EMTHOD WHICH GETS THE NAME AND AGE.
+		}
+		
+		printTableFooter(); // CALLING THE TABLE FOOTER METHOD.
+		
+	}
+
     // CREATING A METHOD THAT PRINTS THE TABLE HEADER
     private static void printTableHeader() {
         System.out.printf("+-------------------------+%n");
