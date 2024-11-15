@@ -69,6 +69,25 @@ public class PetDatabase {
 		
 	}
 
+    public static void updatePet() {
+		showAllPets(); // CALLING THE SHOW PET METHOD
+		//printTableHeader();
+		System.out.print("Enter the pet ID you can to update: "); //PROMPTING THE USER ID OF THE PET
+		int newID = s.nextInt();
+		
+		// CALLING printTableRow METHOD TO WITH THE NEW ID TO GET ME NAME AND AGE OF THE PET.
+		printTableRow(newID, pets[newID].getName(), pets[newID].getAge()); 
+		System.out.print("Enter new name and new age: ");
+		String newName = s.next();
+		int newAge = s.nextInt();
+		pets[newID].setName(newName); // SETTING THE NEW NAME OF THE PET
+		pets[newID].setAge(newAge); // SETTING THE NEW AGE OF THE PET
+		printTableRow(newID, pets[newID].getName(), pets[newID].getAge()); // CALLING THE printTableRow WITH THE UPDATED NAME AND AGE
+		
+		printTableFooter(); // PRINTING THE FOORTER.
+		
+	}
+
     // CREATING A METHOD THAT PRINTS THE TABLE HEADER
     private static void printTableHeader() {
         System.out.printf("+-------------------------+%n");
