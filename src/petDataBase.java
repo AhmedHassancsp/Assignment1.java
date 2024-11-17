@@ -88,6 +88,32 @@ public class PetDatabase {
 		
 	}
 
+    public static void removePet() {
+		showAllPets();
+		Pet[] newPetArray = new Pet[pets.length - 1];
+		System.out.print("Enter the pet ID you can to remove: ");
+		int ID = s.nextInt();
+	
+		
+		for (int i = 0, j = 0; i < pets.length; i++) {
+			//newPetArray[i].setName() = pets[i].get;
+			if (i < ID) {
+				
+			newPetArray[i] = pets[i];
+
+
+			} else {
+
+				newPetArray[i] = pets[i+1];
+			}
+
+		}
+		System.out.println(newPetArray + " is removed");
+		
+		
+		
+	}
+
     // CREATING A METHOD THAT PRINTS THE TABLE HEADER
     private static void printTableHeader() {
         System.out.printf("+-------------------------+%n");
