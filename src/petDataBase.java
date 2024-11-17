@@ -106,9 +106,7 @@ public class PetDatabase {
 
 		}
 		System.out.println(newPetArray + " is removed");
-		
-		
-		
+			
 	}
 
     // CREATING A METHOD THAT SERACHERS THE PET BY NAME 
@@ -126,7 +124,20 @@ public class PetDatabase {
 			
 		}
 		
-	} 
+	}
+    
+    // CREATING A METHOD THAT SERACHERS THE PET BY AGE	
+	private static void searchPetsByAge() {
+		System.out.print("Enter a Age to search: ");
+		int age = s.nextInt();
+		
+		for (int i = 0; i < petCount; i++) {
+			if (pets[i].getAge() == (age)) {
+				System.out.printf("|%-3d | %-10s |%4d |%n" , i, pets[i].getName(), pets[i].getAge());
+			} 
+			
+		}
+	}
 
     // CREATING A METHOD THAT PRINTS THE TABLE HEADER
     private static void printTableHeader() {
