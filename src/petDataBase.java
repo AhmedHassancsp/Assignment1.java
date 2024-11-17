@@ -22,17 +22,16 @@ public class PetDatabase {
 		int playerChoice = input.nextInt();
 		
 		return  playerChoice; // RETURNING THEIR CHOICE
+
+        
+       
 		
 	}
 
 
     // CREATING A METHOD THAT ADD NAME AND AGE
     private static void addPets() {
-        //Let the user add how ever many pet they want
-        //Accept the user input of name and age.
-        //Create an Pet object and add that object to Pets array
-        //Keep track of how many pets the user enters.
-        //Create a While loop where name does not equal "done".
+    
         String name = "";
         int age = 0;
         
@@ -87,27 +86,43 @@ public class PetDatabase {
 	}
 
     public static void removePet() {
-		showAllPets();
-		Pet[] newPetArray = new Pet[pets.length - 1];
-		System.out.print("Enter the pet ID you can to remove: ");
-		int ID = s.nextInt();
-	
-		
-		for (int i = 0, j = 0; i < pets.length; i++) {
-			//newPetArray[i].setName() = pets[i].get;
-			if (i < ID) {
-				
-			newPetArray[i] = pets[i];
-
-			} else {
-
-				newPetArray[i] = pets[i+1];
-			}
-
-		}
-		System.out.println(newPetArray + " is removed");
-			
-	}
+        // Show all pets to the user
+        showAllPets();
+    
+        // Check if there are pets to remove
+        if (pets == null || petCount == 0) {
+            System.out.println("No pets available to remove.");
+            return;
+        }
+    
+        //Prompt the user to enter the pet ID to remove
+        System.out.print("Enter the pet ID to remove: ");
+        int ID = s.nextInt();
+    
+        // Validate the entered ID
+        if (ID < 0 || ID >= petCount) {
+            System.out.println("Invalid pet ID. Please try again.");
+            return;
+        }
+    
+        // Create a new array with one less element
+        Pet[] newPetArray = new Pet[pets.length - 1];
+    
+        // Copy all elements except the one to remove
+        for (int i = 0, j = 0; i < petCount; i++) {
+            if (i != ID) {
+                newPetArray[j++] = pets[i];
+            }
+        }
+    
+        // Update the pets array and decrement the pet count
+        pets = newPetArray;
+        petCount--;
+    
+        // Notify the user about successful removal
+        System.out.println("Pet at ID " + ID + " has been removed.");
+    }
+    
 
     // CREATING A METHOD THAT SERACHERS THE PET BY NAME 
 	private static void searchPetsByName() {
@@ -126,7 +141,7 @@ public class PetDatabase {
 		
 	}
     
-    // CREATING A METHOD THAT SERACHERS THE PET BY AGE	
+    //CREATING A METHOD THAT SERACHERS THE PET BY AGE	
 	private static void searchPetsByAge() {
 		System.out.print("Enter a Age to search: ");
 		int age = s.nextInt();
@@ -155,6 +170,41 @@ public class PetDatabase {
 	public static void printTableFooter() {
 		System.out.print("+-------------------------+ \n");
 		System.out.println(petCount + " rows in set.");
+	}
+
+    public static void main(String[] args) {
+	
+		boolean tryAgain = true; // LOOP CONTROL 
+		while (tryAgain) {
+			int userChoice = getUserChoice(); // GETTING THE USER INPUT FOR WHAT THEY WANT TO DO FROM THE MENU.
+			switch (userChoice) { // CALLING THE USER INPUT IN THE SWITCH CASE
+			
+			case 1: showAllPets();
+				break;
+			case 2:addPets();
+				break;
+			case 3: updatePet();
+				break;
+			case 4: removePet();
+				break;
+			case 5: searchPetsByName();
+				break;
+			case 6: searchPetsByAge();
+				break;
+			case 7:
+				System.out.println("Goodbye!");
+				tryAgain = false; // ENDS THE LOOP AND ENDS THE GAME
+				break;
+			default:
+				System.out.println("Out of range.");
+				break;
+			
+				
+			}
+		}
+		
+        
+
 	}
 
 }
