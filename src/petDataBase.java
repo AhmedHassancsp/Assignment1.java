@@ -3,9 +3,7 @@ import java.util.Scanner;
 public class PetDatabase {
 	
 	static Pet[] pets = new Pet[5]; // creating an pet array.
-	
 	static int petCount = 0;
-	
 	static Scanner s = new Scanner(System.in);
 	
 	private static int getUserChoice() {
@@ -101,7 +99,6 @@ public class PetDatabase {
 				
 			newPetArray[i] = pets[i];
 
-
 			} else {
 
 				newPetArray[i] = pets[i+1];
@@ -113,6 +110,23 @@ public class PetDatabase {
 		
 		
 	}
+
+    // CREATING A METHOD THAT SERACHERS THE PET BY NAME 
+	private static void searchPetsByName() {
+		
+		System.out.print("Enter a name to search: ");
+		String name = s.next();
+		
+		for (int i = 0; i < petCount; i++) {
+			//pets[i].getName();
+			//pets[i].getAge();
+			if (pets[i].getName().equals(name)) {
+				System.out.printf("|%-3d | %-10s |%4d |%n" , i, pets[i].getName(), pets[i].getAge());
+			} 
+			
+		}
+		
+	} 
 
     // CREATING A METHOD THAT PRINTS THE TABLE HEADER
     private static void printTableHeader() {
